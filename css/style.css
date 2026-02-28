@@ -351,3 +351,68 @@ body {
 .transaction-form button:hover {
     opacity: 0.9;
 }
+
+/* ===== TRANSACTION LISTS ===== */
+
+.transaction-lists {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Box */
+.transaction-box {
+    background: linear-gradient(180deg, #0b1220, #020617);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: inset 0 0 0 1px #1E293B;
+}
+
+/* Titles */
+.list-title {
+    font-size: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.earned-title {
+    color: #22C55E;
+}
+
+.spent-title {
+    color: #EF4444;
+}
+
+/* List */
+.transaction-list {
+    list-style: none;
+}
+
+.transaction-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #1E293B;
+    font-size: 14px;
+}
+
+.transaction-list li:last-child {
+    border-bottom: none;
+}
+
+/* Amounts */
+.amount {
+    font-weight: 500;
+}
+
+.amount.earned {
+    color: #22C55E;
+}
+
+.amount.spent {
+    color: #EF4444;
+}
+
