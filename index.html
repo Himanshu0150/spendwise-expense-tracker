@@ -1,54 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpendWise | Expense Tracker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        crossorigin="anonymous"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- App Container -->
-    <div class="app-container">
+<div class="app-container">
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
 
-            <!-- Logo -->
-            <div class="logo-container">
-                <img src="./assets/logo.png" alt="SpendWise Logo" class="logo-img">
-            </div>
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="./assets/logo.png" alt="SpendWise Logo" class="logo-img">
+        </div>
 
-            <!-- Menu -->
-             <nav class="menu">
+        <!-- Navigation -->
+        <nav class="menu">
+            <a href="#" class="menu-item active" onclick="showSection('dashboard', this)">
+                <i class="fa-solid fa-table-cells"></i>
+                <span>Dashboard</span>
+            </a>
 
-                <a href="#" class="menu-item active"> <i class="fa-solid fa-table-cells"></i> <span>Dashboard</span></a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-receipt"></i><span>Transactions</span></a>
-                <a href="#" class="menu-item"><i class="fa-solid fa-chart-line"></i><span>Monthly Review</span></a>
-            </nav>
+            <a href="#" class="menu-item" onclick="showSection('transactions', this)">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Transactions</span>
+            </a>
 
-        </aside>
+        </nav>
 
-        <!-- Main Content -->
-        <main class="main-content">
+    </aside>
 
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- ===== DASHBOARD ===== -->
+        <section id="dashboardSection">
+
+            <!-- User Info -->
             <div class="user-info">
                 <span class="greeting">Hello,</span>
                 <span class="user-name">Himanshu</span>
             </div>
 
-            <div style="text-align: center;">
+            <!-- Overview -->
+            <div class="overview-header">
                 <span class="overview-title">Overview</span>
             </div>
 
+            <!-- Stats Cards -->
             <div class="stats-cards">
 
                 <div class="stat-card">
@@ -76,7 +99,7 @@
                     </div>
                     <h2 class="card-amount">₹ 48,750</h2>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="card-top">
                         <div>
@@ -89,17 +112,19 @@
                     </div>
                     <h2 class="card-amount">43%</h2>
                 </div>
+
             </div>
 
-
-             <!-- Charts Section -->
+            <!-- Charts -->
             <div class="charts-grid">
 
                 <div class="chart-card">
                     <h3 class="chart-title">Expense Breakdown</h3>
+
                     <div class="pie-chart">
                         <span class="pie-center-text">Expenses</span>
                     </div>
+
                     <div class="pie-legend">
                         <div><span class="dot food"></span> Food</div>
                         <div><span class="dot rent"></span> Rent</div>
@@ -107,26 +132,79 @@
                         <div><span class="dot shopping"></span> Shopping</div>
                     </div>
                 </div>
-                
+
                 <div class="chart-card">
                     <h3 class="chart-title">Monthly Expenses</h3>
+
                     <div class="bar-chart">
-                        <div class="bar" style="height: 60%"><span>Jan</span></div>
-                        <div class="bar" style="height: 75%"><span>Feb</span></div>
-                        <div class="bar" style="height: 65%"><span>Mar</span></div>
-                        <div class="bar" style="height: 85%"><span>Apr</span></div>
-                        <div class="bar" style="height: 70%"><span>May</span></div>
+                        <div class="bar" style="height:60%"><span>Jan</span></div>
+                        <div class="bar" style="height:75%"><span>Feb</span></div>
+                        <div class="bar" style="height:65%"><span>Mar</span></div>
+                        <div class="bar" style="height:85%"><span>Apr</span></div>
+                        <div class="bar" style="height:70%"><span>May</span></div>
                     </div>
                 </div>
+
             </div>
-            
-        
-        </main>
 
-    </div>
+        </section>
 
+        <!-- ===== TRANSACTIONS ===== -->
+        <section id="transactionsSection" style="display:none;">
 
-   
+            <div class="transactions-wrapper">
+
+                <h2 class="transactions-title">Transactions</h2>
+
+                <!-- Summary Cards -->
+                <div class="stats-cards">
+
+                    <div class="stat-card">
+                        <p class="card-title">Total Earned</p>
+                        <h2 class="card-amount">₹ 0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p class="card-title">Total Spent</p>
+                        <h2 class="card-amount">₹ 0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p class="card-title">Current Balance</p>
+                        <h2 class="card-amount">₹ 0</h2>
+                    </div>
+
+                </div>
+
+                <!-- Add Transaction -->
+                <div class="transaction-form">
+                    <h3 class="form-title">Add Transaction</h3>
+
+                    <input type="number" placeholder="Enter amount">
+
+                    <select>
+                        <option value="credited">credited</option>
+                        <option value="debited">debited</option>
+                    </select>
+
+                    <button>Add</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== MONTHLY REVIEW (placeholder) ===== -->
+        <section id="monthlySection" style="display:none;">
+            <h2 style="color:#E5E7EB;">Monthly Review (Coming Soon)</h2>
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Script -->
+<script src="js/script.js"></script>
 
 </body>
 </html>
